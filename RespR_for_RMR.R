@@ -4,7 +4,7 @@ library(respR)
 library(janitor)
 
 #--- import data ---# 
-apoly2 <- import_file("./Experiment_ 01 August 2022 11 37AM/Oxygen data raw/Firesting.txt") %>% 
+apoly2 <- import_file("[YOUR PATH HERE]/Experiment_ 01 August 2022 11 37AM/Oxygen data raw/Firesting.txt") %>% 
   clean_names()%>%
   select(c(1:3,5:8))  %>%
   rename(Time = comment,  
