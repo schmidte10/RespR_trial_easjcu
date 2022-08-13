@@ -1,14 +1,15 @@
 #--- insert libraries ---# 
 library(tidyverse)
 library(respR) 
+library(janitor)
 
 #--- import data ---# 
-apoly2 <- import_file("[YOUR PATH TO]/Experiment_ 01 August 2022 11 37AM/Oxygen data raw/Firesting2.txt") %>% 
+apoly2 <- import_file("./Experiment_ 01 August 2022 11 37AM/Oxygen data raw/Firesting.txt") %>% 
   clean_names()%>%
   select(c(1:3,5:8))  %>%
-  rename(Time = time_s,  
-         Oxygen = oxygen_ch1) %>% 
-  select(c("Time","Oxygen","hh_mm_ss"))
+  rename(Time = comment,  
+         Oxygen = oxygen_ch2) %>% 
+  select(c("Time","Oxygen","time_s"))
 
 apoly2$Time <- as.numeric(apoly2$Time)
 apoly2$Oxygen <- as.numeric(apoly2$Oxygen)
